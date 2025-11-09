@@ -8,7 +8,7 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [14, 16, 18]  # 3 parallel variants
+        node-version: [14, 16, 18]   # 👈 ensures 3 parallel jobs
 
     runs-on: ubuntu-latest
 
