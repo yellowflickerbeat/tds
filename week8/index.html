@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quarterly Earnings — Reveal.js</title>
+
+  <!-- Reveal core CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.5.0/dist/theme/solarized.css" id="theme">
+
+  <!-- Highlight (code) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+
+  <style>
+    /* small custom styling */
+    .email { font-size: 0.9em; opacity: 0.85; }
+    .company { font-weight:600; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title slide -->
+      <section>
+        <h1>Quarterly Earnings Report</h1>
+        <p class="company">Major Financial Institution — Q4</p>
+        <p class="email">Contact: 23f2001624@ds.study.iitm.ac.in</p>
+        <aside class="notes">
+          Speaker note: Introduce purpose of the deck, high-level summary and contact email shown for follow-up.
+        </aside>
+      </section>
+
+      <!-- Markdown slide (uses data-markdown) -->
+      <section data-markdown>
+        <textarea data-template>
+## Highlights (Markdown slide)
+
+- Revenue growth: **+8.5%** QoQ  
+- Net income: **+12.0%** YoY  
+- Key drivers:
+  1. Fee income growth
+  2. Cost discipline
+  3. FX tailwinds
+
+> Note: This slide is authorable in Markdown. Use `data-markdown` to edit quickly.
+        </textarea>
+        <aside class="notes">
+          Speaker note: Walk through the three quick bullets; keep to 90 seconds and transition to deeper metrics next slide.
+        </aside>
+      </section>
+
+      <!-- Slide with fragments (animated elements) -->
+      <section>
+        <h2>Strategic Priorities</h2>
+        <ul>
+          <li class="fragment">Expand digital channels</li>
+          <li class="fragment">Optimize cost-to-income ratio</li>
+          <li class="fragment">Strengthen risk-adjusted returns</li>
+        </ul>
+        <aside class="notes">
+          Speaker note: Use fragments to reveal items one-by-one; pause after each to give an example.
+        </aside>
+      </section>
+
+      <!-- Slide with code sample + syntax highlighting -->
+      <section>
+        <h2>Example: Simple NPV calculation (Python)</h2>
+        <pre><code class="language-python">
+def npv(rate, cashflows):
+    """
+    rate: discount rate (e.g., 0.1 for 10%)
+    cashflows: iterable of cashflows where cashflows[0] is t=0
+    """
+    return sum(cf / (1 + rate) ** t for t, cf in enumerate(cashflows))
+
+# Example usage
+rate = 0.08
+cashflows = [-1000, 300, 400, 500]
+print("NPV:", npv(rate, cashflows))
+        </code></pre>
+        <aside class="notes">
+          Speaker note: Explain inputs, mention sensitivity to discount rate and show how this maps to valuation assumptions.
+        </aside>
+      </section>
+
+      <!-- Slide with mathematical equations (MathJax) -->
+      <section>
+        <h2>Financial Formulae</h2>
+        <p>Net Present Value (NPV):</p>
+        <p>
+          \( \mathrm{NPV} = \sum_{t=0}^{T} \dfrac{C_t}{(1+r)^t} \)
+        </p>
+
+        <p>Internal Rate of Return (IRR) definition (root of NPV):</p>
+        <p>
+          Find \( r \) such that \( \sum_{t=0}^{T} \dfrac{C_t}{(1+r)^t} = 0 \).
+        </p>
+
+        <aside class="notes">
+          Speaker note: Mention that NPV uses discount rate r; IRR is the rate making NPV zero. Use these when comparing projects.
+        </aside>
+      </section>
+
+      <!-- Closing slide -->
+      <section>
+        <h2>Questions & Next Steps</h2>
+        <p>Contact: <span class="email">23f2001624@ds.study.iitm.ac.in</span></p>
+        <aside class="notes">
+          Speaker note: Invite questions; mention follow-up deck with appendix and data files.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal core JS and plugins -->
+  <script src="https://unpkg.com/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.5.0/dist/plugin/markdown/markdown.esm.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.5.0/dist/plugin/highlight/highlight.esm.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.5.0/dist/plugin/notes/notes.esm.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.5.0/dist/plugin/math/math.esm.js"></script>
+
+  <!-- Initialize Reveal -->
+  <script>
+    const deck = new Reveal({
+      hash: true,
+      slideNumber: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ],
+      markdown: {
+        smartypants: true
+      },
+      math: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+      }
+    });
+    deck.initialize();
+  </script>
+</body>
+</html>
